@@ -1,0 +1,15 @@
+DROP DATABASE IF EXISTS x_cinema;
+CREATE DATABASE x_cinema;
+
+CREATE TABLE movies
+(
+    id         UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    title      VARCHAR(255) NOT NULL,
+    genre      VARCHAR(100),
+    duration   INTEGER,
+    poster_url VARCHAR(255)
+);
+
+INSERT INTO movies (id, title, genre, duration, poster_url)
+VALUES ('550e8400-e29b-41d4-a716-446655440000', 'Avengers', 'Action', 120, 'http://example.com/avengers.jpg'),
+       ('550e8400-e29b-41d4-a716-446655440001', 'Titanic', 'Romance', 180, 'http://example.com/titanic.jpg');
