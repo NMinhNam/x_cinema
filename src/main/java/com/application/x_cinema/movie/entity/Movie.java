@@ -15,6 +15,8 @@ import lombok.ToString;
 import java.io.Serializable;
 import java.util.UUID;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "movies")
 public class Movie implements Serializable {
@@ -42,43 +44,4 @@ public class Movie implements Serializable {
         this.posterUrl = posterUrl;
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
-    public String getPosterUrl() {
-        return posterUrl;
-    }
-
-    public void setPosterUrl(String posterUrl) {
-        this.posterUrl = posterUrl;
-    }
 }

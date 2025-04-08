@@ -6,8 +6,8 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+
 @Getter
-@Setter
 public class ApiResponse<T> {
     private boolean success;
 
@@ -32,22 +32,6 @@ public class ApiResponse<T> {
         this.message = message;
         this.data = data;
         this.timestamp = LocalDateTime.now();
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
     }
 
     public void setTimestamp(LocalDateTime timestamp) {
