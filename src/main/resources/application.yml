@@ -34,5 +34,5 @@ spring:
 
 logging:
   level:
-    com.zaxxer.hikari: DEBUG
-    org.hibernate.engine.jdbc.connections: DEBUG
+    com.zaxxer.hikari: INFO
+    org.hibernate.engine.jdbc.connections: INFO

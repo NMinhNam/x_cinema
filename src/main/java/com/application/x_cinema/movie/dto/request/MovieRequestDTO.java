@@ -12,4 +12,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class MovieRequestDTO {
+    private String title;
+
+    private String genre;
+
+    private int duration;
+
+    private String posterUrl;
 }
