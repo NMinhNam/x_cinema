@@ -10,15 +10,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.UUID;
 
-@Setter
-@Getter
 @Entity
 @Table(name = "movies")
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Movie implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -32,16 +33,4 @@ public class Movie implements Serializable {
     private int duration;
 
     private String posterUrl;
-
-    public Movie() {
-    }
-
-    public Movie(UUID id, String title, String genre, int duration, String posterUrl) {
-        this.id = id;
-        this.title = title;
-        this.genre = genre;
-        this.duration = duration;
-        this.posterUrl = posterUrl;
-    }
-
 }

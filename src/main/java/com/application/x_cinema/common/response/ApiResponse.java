@@ -1,40 +1,30 @@
 package com.application.x_cinema.common.response;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-
 @Getter
+@Setter
+@AllArgsConstructor
 public class ApiResponse<T> {
     private boolean success;
 
-    private T data;
-
     private String message;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String code;
+
+    private T data;
+
     private LocalDateTime timestamp;
 
-    public ApiResponse() {
-    }
-
-    public ApiResponse(boolean success, T data, String message) {
+    public ApiResponse(boolean success, String message, String code, T data) {
         this.success = success;
         this.message = message;
-        this.data = data;
-    }
-
-    public ApiResponse(boolean success, T data, String message, LocalDateTime timestamp) {
-        this.success = success;
-        this.message = message;
+        this.code = code;
         this.data = data;
         this.timestamp = LocalDateTime.now();
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
     }
 }

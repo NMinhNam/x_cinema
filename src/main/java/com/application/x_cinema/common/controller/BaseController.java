@@ -1,28 +1,39 @@
 package com.application.x_cinema.common.controller;
 
 import com.application.x_cinema.common.response.ApiResponse;
-import com.application.x_cinema.common.service.BaseService;
+import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.List;
+import java.awt.print.Pageable;
 
-public abstract class BaseController<T, ID> {
+/**
+ * Base Controller
+ * @param <CREATE> Create DTO
+ * @param <UPDATE> Update  DTO
+ * @param <RES> Response DTO
+ * @param <ID> Data type ID
+ */
+public abstract class BaseController<CREATE, UPDATE, RES, ID> {
 
-    protected final BaseService<T, ID> service;
+    @PostMapping
+    public abstract ResponseEntity<ApiResponse<RES>> create(@RequestBody @Valid CREATE dto);
 
-    protected BaseController(BaseService<T, ID> service) {
-        this.service = service;
-    }
+    @GetMapping("/{id}")
+    public abstract ResponseEntity<ApiResponse<RES>> getById(@PathVariable ID id);
 
-    public abstract ResponseEntity<ApiResponse<T>> create(@RequestBody T dto);
+    @GetMapping
+    public abstract ResponseEntity<ApiResponse<Page<RES>>> getAll(Pageable pageable);
 
-    public abstract ResponseEntity<ApiResponse<T>> getById(@PathVariable ID id);
+    @PutMapping("/{id}")
+    public abstract ResponseEntity<ApiResponse<RES>> update(@PathVariable ID id, @RequestBody @Valid UPDATE dto);
 
-    public abstract ResponseEntity<ApiResponse<List<T>>> getAll();
-
-    public abstract ResponseEntity<ApiResponse<T>> update(@PathVariable ID id, @RequestBody T dto);
-
+    @DeleteMapping("/{id}")
     public abstract ResponseEntity<ApiResponse<Void>> delete(@PathVariable ID id);
 }

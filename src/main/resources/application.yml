@@ -17,6 +17,7 @@ spring:
       maximum-pool-size: 100
       connection-timeout: 5000
       idle-timeout: 300000
+      pool-name: HikariPool
 
     redis:
       host: localhost
@@ -34,3 +35,4 @@ spring:
 logging:
   level:
     com.zaxxer.hikari: DEBUG
+    org.hibernate.engine.jdbc.connections: DEBUG

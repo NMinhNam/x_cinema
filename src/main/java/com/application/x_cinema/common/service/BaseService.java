@@ -1,16 +1,24 @@
 package com.application.x_cinema.common.service;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import java.util.Optional;
 
-public interface BaseService<T, ID> {
-    T create(T dto);
+/**
+ * Base Service
+ * @param <REQ> Request DTO
+ * @param <RES> Response DTO
+ * @param <ID> Data type ID
+ */
+public interface BaseService<REQ, RES, ID> {
+    RES create(REQ dto);
 
-    T update(ID id, T dto);
+    RES update(ID id, REQ dto);
 
-    Optional<T> getById(ID id);
+    Optional<RES> getById(ID id);
 
-    List<T> getAll();
+    Page<RES> getAll(Pageable pageable);
 
     void delete(ID id);
 }
