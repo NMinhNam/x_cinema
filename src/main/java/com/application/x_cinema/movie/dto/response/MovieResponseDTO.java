@@ -6,21 +6,31 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class MovieResponseDTO {
-    private String id;
+    private UUID movieId;
 
-    private String title;
+    private String name;
+
+    private String description;
+
+    private Integer duration;
+
+    private String posterURL;
+
+    private String language;
+
+    private String movieStatus;
 
     private String genre;
 
-    private int duration;
+    private String director;
 
-    private String posterUrl;
-
-
+    private String actor;
 }

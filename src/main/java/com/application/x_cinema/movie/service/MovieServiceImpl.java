@@ -2,6 +2,7 @@ package com.application.x_cinema.movie.service;
 
 import com.application.x_cinema.movie.dto.request.MovieRequestDTO;
 import com.application.x_cinema.movie.dto.response.MovieResponseDTO;
+import com.application.x_cinema.movie.entity.Movie;
 import com.application.x_cinema.movie.mapper.MovieMapper;
 import com.application.x_cinema.movie.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +38,8 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Page<MovieResponseDTO> getAll(Pageable pageable) {
-        return null;
+        Page<Movie> moviePage = movieRepository.findAll(pageable);
+        return moviePage.map(movieMapper::toResponse);
     }
 
     @Override
