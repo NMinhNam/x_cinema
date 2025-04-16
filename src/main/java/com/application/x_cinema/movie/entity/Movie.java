@@ -28,9 +28,9 @@ public class Movie implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "movie_id")
-    private UUID movieId;
+    private UUID id;
 
-    @Column(name = "name", nullable = false, length = 255)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "description", columnDefinition = "TEXT")
@@ -39,7 +39,7 @@ public class Movie implements Serializable {
     @Column(name = "duration")
     private Integer duration;
 
-    @Column(name = "poster_url", length = 255)
+    @Column(name = "poster_url")
     private String posterURL;
 
     @Column(name = "language", length = 50)
@@ -52,7 +52,7 @@ public class Movie implements Serializable {
     @JoinColumn(name = "genre_id", referencedColumnName = "genre_id")
     private Genre genre;
 
-    @Column(name = "director", length = 255)
+    @Column(name = "director")
     private String director;
 
     @Column(name = "actor", columnDefinition = "TEXT")

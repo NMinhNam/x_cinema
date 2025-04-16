@@ -1,5 +1,7 @@
 package com.application.x_cinema.movie.service;
 
+import com.application.x_cinema.common.enums.ErrorCode;
+import com.application.x_cinema.common.exception.AppException;
 import com.application.x_cinema.movie.dto.request.MovieRequestDTO;
 import com.application.x_cinema.movie.dto.response.MovieResponseDTO;
 import com.application.x_cinema.movie.entity.Movie;
@@ -32,8 +34,10 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public Optional<MovieResponseDTO> getById(UUID uuid) {
-        return Optional.empty();
+    public MovieResponseDTO getById(UUID uuid) {
+        return movieRepository.findById(uuid)
+                .map(movieMapper::toResponse)
+                .orElseThrow(() -> new AppException(ErrorCode.INTERNAL_ERROR));
     }
 
     @Override
@@ -44,5 +48,11 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public void delete(UUID uuid) {
+    }
+
+    @Override
+    public Page<MovieResponseDTO> findById(UUID movieId, Pageable pageable) {
+        Page<Movie> moviePage = movieRepository.findById(movieId, pageable);
+        return moviePage.map(movieMapper::toResponse);
     }
 }

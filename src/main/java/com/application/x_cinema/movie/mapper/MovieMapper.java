@@ -11,7 +11,7 @@ import org.mapstruct.Mapping;
 public interface MovieMapper extends BaseMapper<MovieRequestDTO, MovieResponseDTO, Movie> {
     // Ánh xạ từ MovieRequestDTO sang Movie
     @Override
-    @Mapping(target = "movieId", ignore = true)
+    @Mapping(target = "id", ignore = true)
     @Mapping(target = "genre", ignore = true)
     Movie toEntity(MovieRequestDTO requestDto);
 

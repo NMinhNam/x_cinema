@@ -1,0 +1,15 @@
+version: '3.8'
+
+networks:
+  x-cinema-network:
+    driver: bridge
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: x-cinema-prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./data/prometheus_data:/prometheus
+    ports:
+      - "9090:9090"

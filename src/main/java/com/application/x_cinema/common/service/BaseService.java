@@ -16,7 +16,7 @@ public interface BaseService<REQ, RES, ID> {
 
     RES update(ID id, REQ dto);
 
-    Optional<RES> getById(ID id);
+    RES getById(ID id);
 
     Page<RES> getAll(Pageable pageable);
 
