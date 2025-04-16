@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class MovieResponseDTO {
-    private UUID movieId;
+    private UUID id;
 
     private String name;
 
