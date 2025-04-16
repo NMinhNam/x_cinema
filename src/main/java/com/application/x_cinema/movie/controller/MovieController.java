@@ -1,5 +1,6 @@
 package com.application.x_cinema.movie.controller;
 
+import com.application.x_cinema.common.constants.ApiConstants;
 import com.application.x_cinema.common.controller.BaseController;
 import com.application.x_cinema.common.response.ApiResponse;
 import com.application.x_cinema.common.response.ResponseHandler;
@@ -17,11 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/movies")
+@RequestMapping(ApiConstants.Movie.BASE)
 @RequiredArgsConstructor
 public class MovieController extends BaseController<CreateMovieDTO, UpdateMovieDTO, MovieResponseDTO, UUID> {
 

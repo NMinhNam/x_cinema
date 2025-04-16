@@ -24,7 +24,7 @@ public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "genre_id")
-    private UUID genreId;
+    private UUID id;
 
     @Column(name = "genre_name", nullable = false, length = 50)
     private String genreName;
