@@ -2,6 +2,7 @@ package com.application.x_cinema.movie.controller;
 
 import com.application.x_cinema.common.constants.ApiConstants;
 import com.application.x_cinema.common.controller.BaseController;
+import com.application.x_cinema.common.request.PagingAndSortingRequest;
 import com.application.x_cinema.common.response.ApiResponse;
 import com.application.x_cinema.common.response.ResponseHandler;
 import com.application.x_cinema.movie.dto.request.CreateMovieDTO;
@@ -15,7 +16,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
@@ -40,26 +40,14 @@ public class MovieController extends BaseController<CreateMovieDTO, UpdateMovieD
         return ResponseHandler.success(movieResponse);
     }
 
-
     @Override
-    public ResponseEntity<ApiResponse<Page<MovieResponseDTO>>> getAll(@RequestParam(defaultValue = "0") int page,
-                                                                      @RequestParam(defaultValue = "10") int size,
-                                                                      @RequestParam(defaultValue = "id") String sort,
-                                                                      @RequestParam(defaultValue = "desc") String direction) {
-        // Tạo Sort
-        Sort.Direction sortDirection = direction.equalsIgnoreCase("asc")
-                ? Sort.Direction.ASC
-                : Sort.Direction.DESC;
-        Sort sortBy = Sort.by(sortDirection, sort);
+    public ResponseEntity<ApiResponse<Page<MovieResponseDTO>>> getAll(PagingAndSortingRequest request) {
 
-        // Tạo Pageable
-        Pageable pageable = PageRequest.of(page, size, sortBy);
-
-        // Gọi service
-        Page<MovieResponseDTO> moviePage = movieService.getAll(pageable);
+        Page<MovieResponseDTO> moviePage = movieService.getAll(request.toPageable());
 
         return ResponseHandler.success(moviePage);
     }
+
 
     @Override
     public ResponseEntity<ApiResponse<MovieResponseDTO>> update(UUID uuid, UpdateMovieDTO dto) {

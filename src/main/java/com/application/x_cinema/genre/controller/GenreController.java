@@ -2,12 +2,14 @@ package com.application.x_cinema.genre.controller;
 
 import com.application.x_cinema.common.constants.ApiConstants;
 import com.application.x_cinema.common.controller.BaseController;
+import com.application.x_cinema.common.request.PagingAndSortingRequest;
 import com.application.x_cinema.common.response.ApiResponse;
 import com.application.x_cinema.genre.dto.request.CreateGenreDTO;
 import com.application.x_cinema.genre.dto.request.UpdateGenreDTO;
 import com.application.x_cinema.genre.dto.response.GenreResponseDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +29,7 @@ public class GenreController extends BaseController<CreateGenreDTO, UpdateGenreD
     }
 
     @Override
-    public ResponseEntity<ApiResponse<Page<GenreResponseDTO>>> getAll(int page, int size, String sort, String direction) {
+    public ResponseEntity<ApiResponse<Page<GenreResponseDTO>>> getAll(@ModelAttribute PagingAndSortingRequest request) {
         return null;
     }
 
