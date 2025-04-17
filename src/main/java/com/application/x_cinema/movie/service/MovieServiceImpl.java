@@ -8,6 +8,7 @@ import com.application.x_cinema.movie.entity.Movie;
 import com.application.x_cinema.movie.mapper.MovieMapper;
 import com.application.x_cinema.movie.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -33,8 +34,17 @@ public class MovieServiceImpl implements MovieService {
         return null;
     }
 
+    @Cacheable(value = "movies", key = "#uuid")
     @Override
     public MovieResponseDTO getById(UUID uuid) {
+
+        // Giả định tốc độ api
+        try {
+            Thread.sleep(5000); // 5000ms = 5 giây
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
         return movieRepository.findById(uuid)
                 .map(movieMapper::toResponse)
                 .orElseThrow(() -> new AppException(ErrorCode.INTERNAL_ERROR));
