@@ -152,6 +152,14 @@ CREATE TABLE Payment
     FOREIGN KEY (BookingId) REFERENCES Booking (BookingId)
 );
 
+CREATE TABLE Booking_ShowTime
+(
+    ShowtimeId UUID NOT NULL,
+    BookingId UUID NOT NULL,
+    PRIMARY KEY (ShowtimeId),
+    FOREIGN KEY (BookingId) REFERENCES Booking (BookingId)
+);
+
 -- Indexes for performance
 CREATE INDEX idx_movie_title ON Movie (Title);
 CREATE INDEX idx_showtime_starttime ON Showtime (StartTime);
