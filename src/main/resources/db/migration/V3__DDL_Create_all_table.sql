@@ -1,3 +1,4 @@
+
 CREATE TABLE Cinema
 (
     CinemaId    UUID         NOT NULL PRIMARY KEY,
@@ -88,7 +89,7 @@ CREATE TABLE Notification
     Content        TEXT,
     IsRead         BOOLEAN                  DEFAULT FALSE,
     SentAt         TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (UserId) REFERENCES "User" (UserId)
+    FOREIGN KEY (UserId) REFERENCES users (UserId)
 );
 
 CREATE TABLE Review
@@ -99,7 +100,7 @@ CREATE TABLE Review
     Rating    INT CHECK (Rating >= 1 AND Rating <= 5),
     Comment   TEXT,
     CreatedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (UserId) REFERENCES "User" (UserId),
+    FOREIGN KEY (UserId) REFERENCES users (UserId),
     FOREIGN KEY (MovieId) REFERENCES Movie (MovieId)
 );
 
@@ -123,7 +124,7 @@ CREATE TABLE Booking
     TotalAmount DECIMAL(10, 2) CHECK (TotalAmount >= 0),
     VoucherId   UUID,
     Status      VARCHAR(20) CHECK (Status IN ('Pending', 'Confirmed', 'Cancelled')),
-    FOREIGN KEY (UserId) REFERENCES "User" (UserId),
+    FOREIGN KEY (UserId) REFERENCES users (UserId),
     FOREIGN KEY (ShowtimeId) REFERENCES Showtime (ShowtimeId),
     FOREIGN KEY (VoucherId) REFERENCES Voucher (VoucherId)
 );
@@ -154,6 +155,6 @@ CREATE TABLE Payment
 -- Indexes for performance
 CREATE INDEX idx_movie_title ON Movie (Title);
 CREATE INDEX idx_showtime_starttime ON Showtime (StartTime);
-CREATE INDEX idx_user_username ON "User" (Username);
+CREATE INDEX idx_user_username ON users (Username);
 CREATE INDEX idx_booking_userid ON Booking (UserId);
 CREATE INDEX idx_notification_userid ON Notification (UserId);
