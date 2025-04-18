@@ -5,6 +5,8 @@ import lombok.Getter;
 @Getter
 public enum ErrorCode {
     INTERNAL_ERROR("5000", "Lỗi hệ thống"),
+    NOT_FOUND("404", "Không tìm thấy dữ liệu"),
+    BAD_REQUEST("400", "Yêu cầu không hợp lệ"),
     ;
 
     private final String code;
