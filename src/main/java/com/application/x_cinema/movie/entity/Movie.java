@@ -40,7 +40,7 @@ public class Movie implements Serializable {
     private Integer duration;
 
     @Column(name = "poster_url")
-    private String posterURL;
+    private String posterUrl;
 
     @Column(name = "language", length = 50)
     private String language;

@@ -22,13 +22,13 @@ public class MovieResponseDTO {
 
     private Integer duration;
 
-    private String posterURL;
+    private String posterUrl;
 
     private String language;
 
     private String movieStatus;
 
-    private String genre;
+    private String genreId;
 
     private String director;
 

@@ -22,23 +22,19 @@ public class CreateMovieDTO {
     private Integer duration;
 
     @Size(max = 255, message = "Poster URL must not exceed 255 characters")
-    private String poster_url;
+    private String posterUrl;
 
     @Size(max = 50, message = "Language must not exceed 50 characters")
     private String language;
 
     @Size(max = 20, message = "Movie status must not exceed 20 characters")
-    private String movie_status;
+    private String movieStatus;
 
     @NotNull(message = "Genre ID is required")
-    private UUID genre_id;
+    private UUID genreId;
 
     @Size(max = 255, message = "Director must not exceed 255 characters")
     private String director;
 
     private String actor;
-
-    @NotNull(message = "Base price is required")
-    @PositiveOrZero(message = "Base price must be a positive number or zero")
-    private Double base_price;
 }
