@@ -74,6 +74,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public void delete(UUID id) {
+        // Tim room theo id va xoa
         repository.deleteById(id);
     }
 }
