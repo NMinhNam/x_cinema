@@ -1,4 +1,4 @@
-package com.application.x_cinema.movie.dto.response;
+package com.application.x_cinema.genre.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class MovieResponseDTO {
+public class GenreResponseDTO {
     private UUID id;
 
     private String name;
@@ -22,13 +22,13 @@ public class MovieResponseDTO {
 
     private Integer duration;
 
-    private String posterUrl;
+    private String posterURL;
 
     private String language;
 
     private String movieStatus;
 
-    private String genreId;
+    private String genre;
 
     private String director;
 

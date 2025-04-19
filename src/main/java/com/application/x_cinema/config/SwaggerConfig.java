@@ -18,7 +18,7 @@ public class SwaggerConfig {
                         .description("API docs for the movie ticket booking system")
                         .contact(new Contact()
                                 .name("Nguyen Minh Nam")
-                                .email("mhnamm10@gmai.com")
+                                .email("mhnamm10@gmail.com")
                         )
                 );
     }

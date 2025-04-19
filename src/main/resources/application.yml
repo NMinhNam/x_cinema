@@ -5,11 +5,27 @@ spring:
   application:
     name: x_cinema
 
+  profiles:
+    active: dev
+
   datasource:
     driver-class-name: org.postgresql.Driver
     username: root
     password: root123
     url: jdbc:postgresql://localhost:5432/x_cinema
+
+# Config datasource for Master/Slave
+#  datasource:
+#    master:
+#      url: jdbc:postgresql://localhost:5432/master_x_cinema
+#      username: root
+#      password: root123
+#      driver-class-name: org.postgresql.Driver
+#    slave:
+#      url: jdbc:postgresql://localhost:5433/slave_x_cinema
+#      username: root
+#      password: root123
+#      driver-class-name: org.postgresql.Driver
 
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
@@ -19,18 +35,30 @@ spring:
       idle-timeout: 300000
       pool-name: HikariPool
 
+  cache:
+    type: redis
     redis:
-      host: localhost
-      port: 6379
+      time-to-live: 60000
+      cache-null-values: false
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    baseline-version: 1
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: on
+  data:
+    redis:
+      host: localhost
+      port: 6379
 
 logging:
   level:
