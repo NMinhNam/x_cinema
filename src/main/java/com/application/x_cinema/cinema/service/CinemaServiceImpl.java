@@ -71,10 +71,10 @@ public class CinemaServiceImpl implements CinemaService {
     }
 
     @Override
-    public Optional<CinemaResponseDTO> getById(UUID id) {
+    public CinemaResponseDTO getById(UUID id) {
         return cinemaRepository.findById(id)
-                .map(cinemaMapper::toResponse);
-
+                .map(cinemaMapper::toResponse)
+                .orElseThrow(() -> new EntityNotFoundException("Cinema not found"));
     }
 
     @Override
@@ -88,4 +88,5 @@ public class CinemaServiceImpl implements CinemaService {
     public void delete(UUID id) {
         cinemaRepository.deleteById(id);
     }
+
 }

@@ -28,4 +28,16 @@ public final class ApiConstants {
         public static final String DELETE = BASE + "/{id}";
         public static final String SEARCH = BASE + "/search";
     }
+
+    // ---------- ROOM ----------
+    public static final class Room {
+        public static final String BASE = VERSION_V1 + "/rooms";
+        public static final String GET_ALL = BASE;
+        public static final String GET_BY_ID = BASE + "/{id}";
+        public static final String GET_BY_CINEMA_ID = BASE + "/cinema/{cinemaId}";
+        public static final String CREATE = BASE;
+        public static final String UPDATE = BASE + "/{id}";
+        public static final String DELETE = BASE + "/{id}";
+        public static final String SEARCH = BASE + "/search";
+    }
 }
