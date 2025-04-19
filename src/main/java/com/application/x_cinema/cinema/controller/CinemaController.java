@@ -7,6 +7,7 @@ import com.application.x_cinema.cinema.dto.response.CinemaResponseDTO;
 import com.application.x_cinema.cinema.mapper.CinemaMapper;
 import com.application.x_cinema.cinema.service.CinemaService;
 import com.application.x_cinema.common.controller.BaseController;
+import com.application.x_cinema.common.request.PagingAndSortingRequest;
 import com.application.x_cinema.common.response.ApiResponse;
 import com.application.x_cinema.common.response.ResponseHandler;
 import lombok.RequiredArgsConstructor;
@@ -40,8 +41,8 @@ public class CinemaController extends BaseController<CreateCinemaDTO, UpdateCine
     @Override
     public ResponseEntity<ApiResponse<CinemaResponseDTO>> getById(UUID id) {
         // Call service
-        CinemaResponseDTO responseDto = cinemaService.getById(id)
-                                                    .orElse(null);
+        CinemaResponseDTO responseDto = cinemaService.getById(id);
+
 
         return ResponseHandler.success(responseDto);
     }
