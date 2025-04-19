@@ -1,7 +1,5 @@
-package com.application.x_cinema.movie.dto.request;
+package com.application.x_cinema.genre.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -11,8 +9,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
-public class CreateMovieDTO {
-    @NotBlank(message = "Movie name is required")
+public class UpdateGenreDTO {
     @Size(max = 255, message = "Movie name must not exceed 255 characters")
     private String name;
 
@@ -22,19 +19,21 @@ public class CreateMovieDTO {
     private Integer duration;
 
     @Size(max = 255, message = "Poster URL must not exceed 255 characters")
-    private String posterUrl;
+    private String poster_url;
 
     @Size(max = 50, message = "Language must not exceed 50 characters")
     private String language;
 
     @Size(max = 20, message = "Movie status must not exceed 20 characters")
-    private String movieStatus;
+    private String movie_status;
 
-    @NotNull(message = "Genre ID is required")
-    private UUID genreId;
+    private UUID genre_id;
 
     @Size(max = 255, message = "Director must not exceed 255 characters")
     private String director;
 
     private String actor;
+
+    @PositiveOrZero(message = "Base price must be a positive number or zero")
+    private Double base_price;
 }
