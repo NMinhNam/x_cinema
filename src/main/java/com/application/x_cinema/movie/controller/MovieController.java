@@ -2,6 +2,8 @@ package com.application.x_cinema.movie.controller;
 
 import com.application.x_cinema.common.constants.ApiConstants;
 import com.application.x_cinema.common.controller.BaseController;
+import com.application.x_cinema.common.enums.ErrorCode;
+import com.application.x_cinema.common.exception.AppException;
 import com.application.x_cinema.common.request.PagingAndSortingRequest;
 import com.application.x_cinema.common.response.ApiResponse;
 import com.application.x_cinema.common.response.ResponseHandler;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -55,10 +58,19 @@ public class MovieController extends BaseController<CreateMovieDTO, UpdateMovieD
         return ResponseHandler.success(moviePage);
     }
 
-
     @Override
     public ResponseEntity<ApiResponse<MovieResponseDTO>> update(UUID uuid, UpdateMovieDTO dto) {
-        return null;
+
+        MovieResponseDTO movieResponse = movieService.getById(uuid);
+
+        if (movieResponse == null) {
+            throw new AppException(ErrorCode.INTERNAL_ERROR);
+        }
+
+        // Map CreateMovieDTO -> MovieRequest
+        MovieRequestDTO requestDTO = movieMapper.toRequest(dto);
+
+        return ResponseHandler.success(movieService.update(uuid, requestDTO));
     }
 
     @Override
