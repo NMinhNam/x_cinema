@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "cinemas")
+@Table(name = "cinema")
 @Setter
 @Getter
 @AllArgsConstructor
@@ -26,7 +26,7 @@ public class Cinema implements Serializable {
     @Column(name = "cinema_id")
     private UUID id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "cinema_name", nullable = false)
     private String name;
 
     @Column(name = "address", nullable = false)
@@ -35,10 +35,10 @@ public class Cinema implements Serializable {
     @Column(name = "city", nullable = false)
     private String city;
 
-    @Column(name = "phone_number", nullable = false)
+    @Column(name = "phone_number", nullable = true)
     private String phoneNumber;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = true)
     private String email;
 
 //    @OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

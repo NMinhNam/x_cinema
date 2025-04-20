@@ -21,9 +21,9 @@ public interface RoomMapper extends BaseMapper<RoomRequestDTO, RoomResponseDTO, 
     Room toEntity(RoomRequestDTO requestDto);
 
     // Anh xa tu Room -> RoomResponseDTO
-    @Override
-    @Mapping(source = "cinema.id", target = "cinemaId")
-    RoomResponseDTO toResponse(Room room);
+        @Override
+        @Mapping(source = "cinema.id", target = "cinemaId")
+        RoomResponseDTO toResponse(Room room);
 
     // CreateRoomDTO -> RoomRequestDTO
     RoomRequestDTO toRoomRequestDTO(CreateRoomDTO createRoomDTO);

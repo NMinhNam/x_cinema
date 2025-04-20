@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -90,7 +91,7 @@ public class RoomController extends BaseController<CreateRoomDTO, UpdateRoomDTO,
     }
 
     @GetMapping("/search-by-cinema")
-    public ResponseEntity<ApiResponse<Page<RoomResponseDTO>>> getByCinemaId(@RequestParam("cinemaId") UUID cinemaId, PagingAndSortingRequest request) {
+    public ResponseEntity<ApiResponse<Page<RoomResponseDTO>>> getByCinemaId(@RequestParam("cinemaId") UUID cinemaId, @ModelAttribute PagingAndSortingRequest request) {
 
         // 1. Gọi service để tìm Room theo cinemaId (có phân trang)
         Page<RoomResponseDTO> roomResponse = roomService.getByCinemaId(cinemaId, request.toPageable());

@@ -56,8 +56,7 @@ public class CinemaController extends BaseController<CreateCinemaDTO, UpdateCine
 
     @Override
     public ResponseEntity<ApiResponse<CinemaResponseDTO>> update(UUID id, UpdateCinemaDTO dto) {
-        // Không dùng
-        throw new UnsupportedOperationException("Use update(UUID, UpdateCinemaDTO) instead");
+        return null;
     }
 
     @Override
@@ -66,11 +65,11 @@ public class CinemaController extends BaseController<CreateCinemaDTO, UpdateCine
         return ResponseHandler.success(null);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse<CinemaResponseDTO>> updateFromDTO(@PathVariable UUID id, @RequestBody UpdateCinemaDTO dto) {
-        CinemaResponseDTO updateCinema = cinemaService.updateFromDTO(id, dto);
-        return ResponseHandler.success(updateCinema);
-    }
+//    @PutMapping("/{id}")
+//    public ResponseEntity<ApiResponse<CinemaResponseDTO>> updateFromDTO(@PathVariable UUID id, @RequestBody UpdateCinemaDTO dto) {
+//        CinemaResponseDTO updateCinema = cinemaService.updateFromDTO(id, dto);
+//        return ResponseHandler.success(updateCinema);
+//    }
 
     @GetMapping("/city/{city}")
     public ResponseEntity<ApiResponse<Page<CinemaResponseDTO>>> findByCity(@PathVariable String city, PagingAndSortingRequest request) {
