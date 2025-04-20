@@ -33,5 +33,5 @@ public interface CinemaMapper extends BaseMapper<CinemaRequestDTO, CinemaRespons
 
     // Update Cinema from UpdateCinemaDTO
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    void updateEntityFromDTO(UpdateCinemaDTO dto, @MappingTarget Cinema entity);
+    void updateEntityFromDTO(CinemaRequestDTO dto, @MappingTarget Cinema entity);
 }

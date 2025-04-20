@@ -18,5 +18,4 @@ public interface CinemaService extends BaseService<CinemaRequestDTO, CinemaRespo
 
     Page<CinemaResponseDTO> findByCityAndName(String city, String name, Pageable pageable);
 
-    CinemaResponseDTO updateFromDTO(UUID id, UpdateCinemaDTO dto);
 }
