@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -31,6 +32,7 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
+    @Transactional
     public RoomResponseDTO create(RoomRequestDTO dto) {
         // Map from RoomRequestDTO sang Room
         Room room = mapper.toEntity(dto);
@@ -41,6 +43,7 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
+    @Transactional
     public RoomResponseDTO update(UUID id, RoomRequestDTO dto) {
         // 1 Tim room theo id
         Room room = repository.findById(id)
@@ -73,6 +76,7 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
+    @Transactional
     public void delete(UUID id) {
         // Tim room theo id va xoa
         repository.deleteById(id);
