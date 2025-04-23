@@ -1,8 +1,6 @@
 package com.application.x_cinema.cinema.service;
 
 import com.application.x_cinema.cinema.dto.request.CinemaRequestDTO;
-import com.application.x_cinema.cinema.dto.request.CreateCinemaDTO;
-import com.application.x_cinema.cinema.dto.request.UpdateCinemaDTO;
 import com.application.x_cinema.cinema.dto.response.CinemaResponseDTO;
 import com.application.x_cinema.common.service.BaseService;
 import org.springframework.data.domain.Page;

@@ -1,14 +1,12 @@
 package com.application.x_cinema.cinema.service;
 
 import com.application.x_cinema.cinema.dto.request.CinemaRequestDTO;
-import com.application.x_cinema.cinema.dto.request.UpdateCinemaDTO;
 import com.application.x_cinema.cinema.dto.response.CinemaResponseDTO;
 import com.application.x_cinema.cinema.entity.Cinema;
 import com.application.x_cinema.cinema.mapper.CinemaMapper;
 import com.application.x_cinema.cinema.repository.CinemaRepository;
 import com.application.x_cinema.common.enums.ErrorCode;
 import com.application.x_cinema.common.exception.AppException;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
