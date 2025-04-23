@@ -66,6 +66,11 @@ public class MovieServiceImpl implements MovieService {
     @CacheEvict(value = "movies", key = "#uuid")
     @Override
     public void delete(UUID uuid) {
+
+        boolean isExistsMovie = movieRepository.existsById(uuid);
+
+        if (!isExistsMovie) throw new AppException(ErrorCode.MOVIE_NOT_EXISTS);
+
         movieRepository.deleteById(uuid);
     }
 
