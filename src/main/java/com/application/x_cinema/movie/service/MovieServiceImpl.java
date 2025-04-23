@@ -8,11 +8,12 @@ import com.application.x_cinema.movie.entity.Movie;
 import com.application.x_cinema.movie.mapper.MovieMapper;
 import com.application.x_cinema.movie.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -25,7 +26,14 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public MovieResponseDTO create(MovieRequestDTO dto) {
-        return null;
+        // Map DTO REQ -> ENTITY
+        Movie movie = movieMapper.toEntity(dto);
+
+        // Save DB
+        movieRepository.save(movie);
+
+        // Map ENTITY -> DTO RES
+        return movieMapper.toResponse(movie);
     }
 
     @Override
@@ -33,8 +41,17 @@ public class MovieServiceImpl implements MovieService {
         return null;
     }
 
+    @Cacheable(value = "movies", key = "#uuid")
     @Override
     public MovieResponseDTO getById(UUID uuid) {
+
+        // Giả định tốc độ api
+        try {
+            Thread.sleep(5000); // 5000ms = 5 giây
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
         return movieRepository.findById(uuid)
                 .map(movieMapper::toResponse)
                 .orElseThrow(() -> new AppException(ErrorCode.INTERNAL_ERROR));
@@ -46,13 +63,20 @@ public class MovieServiceImpl implements MovieService {
         return moviePage.map(movieMapper::toResponse);
     }
 
+    @CacheEvict(value = "movies", key = "#uuid")
     @Override
     public void delete(UUID uuid) {
+
+        boolean isExistsMovie = movieRepository.existsById(uuid);
+
+        if (!isExistsMovie) throw new AppException(ErrorCode.MOVIE_NOT_EXISTS);
+
+        movieRepository.deleteById(uuid);
     }
 
     @Override
-    public Page<MovieResponseDTO> findById(UUID movieId, Pageable pageable) {
-        Page<Movie> moviePage = movieRepository.findById(movieId, pageable);
+    public Page<MovieResponseDTO> getByGenreId(UUID genreId, Pageable pageable) {
+        Page<Movie> moviePage = movieRepository.findByGenreId(genreId, pageable);
         return moviePage.map(movieMapper::toResponse);
     }
 }
