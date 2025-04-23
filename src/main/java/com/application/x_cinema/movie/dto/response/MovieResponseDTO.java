@@ -30,6 +30,8 @@ public class MovieResponseDTO {
 
     private String genreId;
 
+    private String genreName;
+
     private String director;
 
     private String actor;

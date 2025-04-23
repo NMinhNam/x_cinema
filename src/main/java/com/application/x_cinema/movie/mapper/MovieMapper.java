@@ -18,7 +18,7 @@ public interface MovieMapper extends BaseMapper<MovieRequestDTO, MovieResponseDT
 
     // Ánh xạ từ Movie sang MovieResponseDTO
     @Override
-    @Mapping(source = "genre.genreName", target = "genreId")
+    @Mapping(source = "genre.genreName", target = "genreName")
     MovieResponseDTO toResponse(Movie movie);
 
     // Ánh xạ từ CreateMovieDTO sang MovieRequestDTO

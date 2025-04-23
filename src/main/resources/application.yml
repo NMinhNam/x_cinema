@@ -64,3 +64,4 @@ logging:
   level:
     com.zaxxer.hikari: INFO
     org.hibernate.engine.jdbc.connections: INFO
+    org.springframework.security: DEBUG

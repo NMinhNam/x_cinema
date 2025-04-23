@@ -28,4 +28,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse<Object>> handleOther(Exception ex) {
         return ResponseHandler.error(ErrorCode.INTERNAL_ERROR, HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
     }
+
+    @ExceptionHandler(AppException.class)
+    public ResponseEntity<ApiResponse<Object>> handleAppException(Exception ex) {
+        return ResponseHandler.error(ErrorCode.INTERNAL_ERROR, HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
+    }
 }
