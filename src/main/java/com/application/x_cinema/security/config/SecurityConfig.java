@@ -16,10 +16,16 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    private final String[] whiteList = {
+            "/swagger-ui/**",
+            "/v3/api-docs*/**",
+            "/api/v1/**"
+    };
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(req -> req
-                .requestMatchers("/api/v1/movies/").permitAll()
+                .requestMatchers(whiteList).permitAll()
         );
         return http.build();
     }

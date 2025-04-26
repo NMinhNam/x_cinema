@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(ApiConstants.Movie.BASE)
+@RequestMapping(ApiConstants.MOVIE)
 @RequiredArgsConstructor
 public class MovieController extends BaseController<CreateMovieDTO, UpdateMovieDTO, MovieResponseDTO, UUID> {
 

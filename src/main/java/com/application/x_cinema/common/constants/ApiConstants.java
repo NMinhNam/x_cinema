@@ -8,24 +8,7 @@ public final class ApiConstants {
     public static final String VERSION_V1 = BASE_API + "/v1";
 
     // ---------- MOVIE ----------
-    public static final class Movie {
-        public static final String BASE = VERSION_V1 + "/movies";
-        public static final String GET_ALL = BASE;
-        public static final String GET_BY_ID = BASE + "/{id}";
-        public static final String CREATE = BASE;
-        public static final String UPDATE = BASE + "/{id}";
-        public static final String DELETE = BASE + "/{id}";
-        public static final String SEARCH = BASE + "/search";
-    }
-
+        public static final String MOVIE = VERSION_V1 + "/movies";
     // ---------- GENRE ----------
-    public static final class Genre {
-        public static final String BASE = BASE_API + "/genres";
-        public static final String GET_ALL = BASE;
-        public static final String GET_BY_ID = BASE + "/{id}";
-        public static final String CREATE = BASE;
-        public static final String UPDATE = BASE + "/{id}";
-        public static final String DELETE = BASE + "/{id}";
-        public static final String SEARCH = BASE + "/search";
-    }
+        public static final String GENRE = VERSION_V1 + "/genres";
 }

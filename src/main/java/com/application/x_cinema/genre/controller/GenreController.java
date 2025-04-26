@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(ApiConstants.Genre.BASE)
+@RequestMapping(ApiConstants.GENRE)
 public class GenreController extends BaseController<CreateGenreDTO, UpdateGenreDTO, GenreResponseDTO, UUID> {
     @Override
     public ResponseEntity<ApiResponse<GenreResponseDTO>> create(CreateGenreDTO dto) {
