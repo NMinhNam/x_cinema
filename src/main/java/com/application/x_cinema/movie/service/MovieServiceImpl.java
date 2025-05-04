@@ -2,6 +2,7 @@ package com.application.x_cinema.movie.service;
 
 import com.application.x_cinema.common.enums.ErrorCode;
 import com.application.x_cinema.common.exception.AppException;
+import com.application.x_cinema.movie.dto.request.MovieRequestDTO;
 import com.application.x_cinema.movie.dto.response.MovieResponseDTO;
 import com.application.x_cinema.movie.entity.Movie;
 import com.application.x_cinema.movie.mapper.MovieMapper;

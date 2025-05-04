@@ -8,6 +8,7 @@ import com.application.x_cinema.common.response.ResponseHandler;
 import com.application.x_cinema.room.dto.request.CreateRoomDTO;
 import com.application.x_cinema.room.dto.request.RoomRequestDTO;
 import com.application.x_cinema.room.dto.request.UpdateRoomDTO;
+import com.application.x_cinema.room.dto.respone.RoomResponseDTO;
 import com.application.x_cinema.room.mapper.RoomMapper;
 import com.application.x_cinema.room.service.RoomService;
 import lombok.RequiredArgsConstructor;

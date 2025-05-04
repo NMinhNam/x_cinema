@@ -6,6 +6,8 @@ import com.application.x_cinema.common.request.PagingAndSortingRequest;
 import com.application.x_cinema.common.response.ApiResponse;
 import com.application.x_cinema.common.response.ResponseHandler;
 import com.application.x_cinema.movie.dto.request.CreateMovieDTO;
+import com.application.x_cinema.movie.dto.request.MovieRequestDTO;
+import com.application.x_cinema.movie.dto.request.UpdateMovieDTO;
 import com.application.x_cinema.movie.dto.response.MovieResponseDTO;
 import com.application.x_cinema.movie.mapper.MovieMapper;
 import com.application.x_cinema.movie.service.MovieService;
