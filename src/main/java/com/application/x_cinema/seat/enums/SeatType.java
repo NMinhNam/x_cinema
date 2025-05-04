@@ -12,7 +12,12 @@ public enum SeatType {
     VIP("VIP"),
     LUXURY("luxury"),
     BEAN_BAG("bean bag"),
-    ROCKING_CHAIR("rocking chair");
+    ROCKING_CHAIR("rocking chair"),
+    PREMIUM("Premium"),
+    LOVE_SEAT("Love Seat"),
+    RECLINER("Recliner"),
+    FLOOR_CUSHION("Floor Cushion");
+
 
     private final String value;
 
