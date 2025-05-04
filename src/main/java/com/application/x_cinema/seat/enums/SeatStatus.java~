@@ -14,7 +14,7 @@ public enum SeatStatus {
     LOCKED("Locked");
 
     private final String value;
-
+    
 
     @JsonValue
     public String getValue() {
