@@ -10,7 +10,8 @@ public enum ErrorCode {
 
 
     CINEMA_NOT_FOUND("5001", "Không tìm thấy rạp phim"),
-    ;
+
+    SEAT_NOT_FOUND("5002", "Không tìm thấy ghế");
 
     private final String code;
     

@@ -1,0 +1,44 @@
+package com.application.x_cinema.seat.dto.request;
+
+import com.application.x_cinema.common.validator.ValidEnum;
+import com.application.x_cinema.seat.enums.SeatStatus;
+import com.application.x_cinema.seat.enums.SeatType;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.UUID;
+
+@Getter
+@Setter
+public class CreateSeatDTO {
+
+    @NotNull(message = "Room ID is required")
+    private UUID roomId;
+
+    @NotNull(message = "Position is required")
+    @Size(max = 20, message = "Position must not exceed 20 characters")
+    private String position;
+
+    @NotNull(message = "Row alphabet is required")
+    @Size(max = 5, message = "Row alphabet must not exceed 5 characters")
+    private String rowAlphabet;
+
+    @NotNull(message = "Column number is required")
+    @Min(value = 1, message = "Column number must be at least 1")
+    private Integer columnNumber;
+
+    @NotNull(message = "Seat type is required")
+    @ValidEnum(enumClass = SeatType.class, message = "Invalid seat type")
+    private String seatType;
+
+    @NotNull(message = "Seat status is required")
+    @ValidEnum(enumClass = SeatStatus.class, message = "Invalid seat status")
+    private String seatStatus;
+
+    @NotNull(message = "Surcharge is required")
+    @Min(value = 0, message = "Surcharge must be greater than or equal to 0")
+    private Integer surcharge;
+}
