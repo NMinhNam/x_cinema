@@ -36,7 +36,4 @@ public class UpdateMovieDTO {
     private String director;
 
     private String actor;
-
-    @PositiveOrZero(message = "Base price must be a positive number or zero")
-    private Double base_price;
 }

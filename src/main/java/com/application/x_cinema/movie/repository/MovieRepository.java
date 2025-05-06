@@ -10,5 +10,5 @@ import java.util.UUID;
 
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, UUID> {
-    Page<Movie> findById(UUID movieId, Pageable pageable);
+    Page<Movie> findByGenreId(UUID genreId, Pageable pageable);
 }

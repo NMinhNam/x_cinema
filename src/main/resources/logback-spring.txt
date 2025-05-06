@@ -1,30 +1,24 @@
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-<!--<configuration>-->
-<!--    <include resource="org/springframework/boot/logging/logback/base.xml"/>-->
-<!--    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">-->
-<!--        &lt;!&ndash; <destination>localhost:5600</destination>&ndash;&gt; &lt;!&ndash;local env&ndash;&gt;-->
-<!--        <destination>${LOGSTASH_HOST:-localhost:5600}</destination> &lt;!&ndash;docker env&ndash;&gt;-->
-<!--        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">-->
-<!--            <providers>-->
-<!--                <mdc/>-->
-<!--                <context/>-->
-<!--                <logLevel/>-->
-<!--                <loggerName/>-->
-<!--                <pattern>-->
-<!--                    <pattern>-->
-<!--                        {-->
-<!--                        "appName": "x_cinema"-->
-<!--                        }-->
-<!--                    </pattern>-->
-<!--                </pattern>-->
-<!--                <threadName/>-->
-<!--                <message/>-->
-<!--                <logstashMarkers/>-->
-<!--                <stackTrace/>-->
-<!--            </providers>-->
-<!--        </encoder>-->
-<!--    </appender>-->
-<!--    <root level="info">-->
-<!--        <appender-ref ref="logstash"/>-->
-<!--    </root>-->
-<!--</configuration>-->
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="APP_NAME" value="spring-boot-app"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>localhost:5044</destination>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"app_name":"${APP_NAME}"}</customFields>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="LOGSTASH"/>
+    </root>
+
+</configuration>

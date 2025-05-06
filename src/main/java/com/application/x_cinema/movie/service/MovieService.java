@@ -9,5 +9,5 @@ import org.springframework.data.domain.Pageable;
 import java.util.UUID;
 
 public interface MovieService extends BaseService<MovieRequestDTO, MovieResponseDTO, UUID> {
-    Page<MovieResponseDTO> findById(UUID movieId, Pageable pageable);
+    Page<MovieResponseDTO> getByGenreId(UUID genreId, Pageable pageable);
 }

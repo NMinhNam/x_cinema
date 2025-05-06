@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 /**
  * Base Controller
  * @param <CREATE> Create DTO
- * @param <UPDATE> Update  DTO
+ * @param <UPDATE> Update DTO
  * @param <RES> Response DTO
  * @param <ID> Data type ID
  */
@@ -36,5 +36,5 @@ public abstract class BaseController<CREATE, UPDATE, RES, ID> {
     public abstract ResponseEntity<ApiResponse<RES>> update(@PathVariable ID id, @RequestBody @Valid UPDATE dto);
 
     @DeleteMapping("/{id}")
-    public abstract ResponseEntity<ApiResponse<Void>> delete(@PathVariable ID id);
+    public abstract ResponseEntity<ApiResponse<Void>> delete(@PathVariable("id") ID id);
 }

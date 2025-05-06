@@ -14,7 +14,7 @@ public class PagingAndSortingRequest {
     @Min(0)
     private int page = 0;
 
-    @Min(1)
+    @Min(10)
     private int size = 10;
 
     private String sort = "id";
