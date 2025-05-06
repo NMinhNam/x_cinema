@@ -8,6 +8,7 @@ import com.application.x_cinema.genre.dto.request.CreateGenreDTO;
 import com.application.x_cinema.genre.dto.request.UpdateGenreDTO;
 import com.application.x_cinema.genre.dto.response.GenreResponseDTO;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,9 +30,10 @@ public class GenreController extends BaseController<CreateGenreDTO, UpdateGenreD
     }
 
     @Override
-    public ResponseEntity<ApiResponse<Page<GenreResponseDTO>>> getAll(@ModelAttribute PagingAndSortingRequest request) {
+    public ResponseEntity<ApiResponse<Page<GenreResponseDTO>>> getAll(PagingAndSortingRequest request, Pageable pageable) {
         return null;
     }
+
 
     @Override
     public ResponseEntity<ApiResponse<GenreResponseDTO>> update(UUID uuid, UpdateGenreDTO dto) {

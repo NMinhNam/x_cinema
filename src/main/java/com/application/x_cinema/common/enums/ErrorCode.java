@@ -5,6 +5,8 @@ import lombok.Getter;
 @Getter
 public enum ErrorCode {
     INTERNAL_ERROR("5000", "Lỗi hệ thống"),
+    USER_NOT_FOUND("5001", "Không tìm thấy người dụng"),
+    VOUCHER_NOT_FOUND("5002", "Không tìm thấy VOUCHER"),
     ;
 
     private final String code;

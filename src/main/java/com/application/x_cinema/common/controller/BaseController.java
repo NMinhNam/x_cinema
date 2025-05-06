@@ -4,6 +4,7 @@ import com.application.x_cinema.common.request.PagingAndSortingRequest;
 import com.application.x_cinema.common.response.ApiResponse;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +30,7 @@ public abstract class BaseController<CREATE, UPDATE, RES, ID> {
     public abstract ResponseEntity<ApiResponse<RES>> getById(@PathVariable("id") ID id);
 
     @GetMapping()
-    public abstract ResponseEntity<ApiResponse<Page<RES>>> getAll(@ModelAttribute PagingAndSortingRequest request);
+    public abstract ResponseEntity<ApiResponse<Page<RES>>> getAll(@ModelAttribute PagingAndSortingRequest request, Pageable pageable);
 
     @PutMapping("/{id}")
     public abstract ResponseEntity<ApiResponse<RES>> update(@PathVariable ID id, @RequestBody @Valid UPDATE dto);

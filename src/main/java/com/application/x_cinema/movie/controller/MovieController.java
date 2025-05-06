@@ -41,12 +41,11 @@ public class MovieController extends BaseController<CreateMovieDTO, UpdateMovieD
     }
 
     @Override
-    public ResponseEntity<ApiResponse<Page<MovieResponseDTO>>> getAll(PagingAndSortingRequest request) {
-
-        Page<MovieResponseDTO> moviePage = movieService.getAll(request.toPageable());
-
-        return ResponseHandler.success(moviePage);
+    public ResponseEntity<ApiResponse<Page<MovieResponseDTO>>> getAll(PagingAndSortingRequest request, Pageable pageable) {
+        return null;
     }
+
+
 
 
     @Override

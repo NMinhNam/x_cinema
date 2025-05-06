@@ -28,4 +28,26 @@ public final class ApiConstants {
         public static final String DELETE = BASE + "/{id}";
         public static final String SEARCH = BASE + "/search";
     }
+
+    // ---------- USER ----------
+    public static final class User {
+        public static final String BASE = BASE_API + "/users";
+        public static final String GET_ALL = BASE;
+        public static final String GET_BY_ID = BASE + "/{id}";
+        public static final String CREATE = BASE;
+        public static final String UPDATE = BASE + "/{id}";
+        public static final String DELETE = BASE + "/{id}";
+        public static final String SEARCH = BASE + "/search";
+    }
+
+    // ---------- VOUCHER ----------
+    public static final class Voucher {
+        public static final String BASE = BASE_API + "/vouchers";
+        public static final String GET_ALL = BASE;
+        public static final String GET_BY_ID = BASE + "/{id}";
+        public static final String CREATE = BASE;
+        public static final String UPDATE = BASE + "/{id}";
+        public static final String DELETE = BASE + "/{id}";
+        public static final String SEARCH = BASE + "/search";
+    }
 }

@@ -1,0 +1,2 @@
+insert into users (userid, username, password, fullname, email, phonenumber, dateofbirth, gender, role, status) VALUES ('3f61a75e-1db8-44c5-9ad2-9947d63bd3f7', 'admin', '123456', 'Admin', 'nL8rO@example.com', '1234567890', '1990-01-01', 'Male', 'Admin', 'Active');
+insert into users (userid, username, password, fullname, email, phonenumber, dateofbirth, gender, role, status) VALUES ('a41f0376-b7d7-4cf8-8d8e-c7d1e837f0b9', 'staff', '123456', 'Admin', 'nL8arO@example.com', '1234567890', '1990-02-02', 'Female', 'Admin', 'Active');
